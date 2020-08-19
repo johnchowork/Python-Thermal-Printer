@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
 # Current time and temperature display for Raspberry Pi w/Adafruit Mini
 # Thermal Printer.  Retrieves data from DarkSky.net's API, prints current
@@ -41,15 +41,15 @@ for category in range(array_length):
     printer.feed(1)    
     printer.inverseOn()
     printer.boldOn()
-    printer.print(all_categories[category])
+    printer.println(all_categories[category])
     # Reset size
     printer.inverseOff()
     printer.boldOff()			
     for grocery in grocery_list:
         if int(grocery['category']) == int(category):
-            print(grocery['name'])
+            println(grocery['name'])
             # Each Grocery
-            printer.print(grocery['name'])
+            printer.println(grocery['name'])
 
 printer.feed(3)
 
