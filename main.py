@@ -30,10 +30,10 @@ lastId       = '1'   # State information passed to/from interval script
 printer      = Adafruit_Thermal("/dev/serial0", 19200, timeout=5)
 
 
-# Called when button is briefly tapped.  Invokes time/temperature script.
+# Called when button is briefly tapped.  Invokes grocery script.
 def tap():
   GPIO.output(ledPin, GPIO.HIGH)  # LED on while working
-  subprocess.call(["python", "timetemp.py"])
+  subprocess.call(["python", "grocery.py"])
   GPIO.output(ledPin, GPIO.LOW)
 
 
@@ -47,6 +47,8 @@ def hold():
   GPIO.output(ledPin, GPIO.LOW)
 
 
+# Don't need Periodic/Daily
+"""
 # Called at periodic intervals (30 seconds by default).
 # Invokes twitter script.
 def interval():
@@ -64,7 +66,7 @@ def daily():
   subprocess.call(["python", "forecast.py"])
   subprocess.call(["python", "sudoku-gfx.py"])
   GPIO.output(ledPin, GPIO.LOW)
-
+"""
 
 # Initialization
 
@@ -146,6 +148,7 @@ while(True):
   else:
     GPIO.output(ledPin, GPIO.LOW)
 
+  """
   # Once per day (currently set for 6:30am local time, or when script
   # is first run, if after 6:30am), run forecast and sudoku scripts.
   l = time.localtime()
@@ -164,4 +167,5 @@ while(True):
     result = interval()
     if result is not None:
       lastId = result.rstrip('\r\n')
+  """
 
