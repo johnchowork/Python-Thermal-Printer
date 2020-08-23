@@ -15,7 +15,10 @@
 
 from __future__ import print_function
 from Adafruit_Thermal import *
-from urllib.request import urlopen
+try:
+    from urllib.request  import urlopen
+except ImportError:
+    from urllib2 import urlopen
 import json
 
 # Global
