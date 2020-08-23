@@ -15,7 +15,9 @@
 
 from __future__ import print_function
 from Adafruit_Thermal import *
-import urllib, json
+import urllib.request, 
+from urllib.request import urlopen
+import json
 
 # Global
 printer = Adafruit_Thermal("/dev/serial0", 19200, timeout=5)
@@ -23,7 +25,7 @@ printer = Adafruit_Thermal("/dev/serial0", 19200, timeout=5)
 print("Grocery List Print Requested")
 
 # Fetch grocery data from Grocery Rails Program, parse resulting JSON
-response = urllib.request.urlopen("http://127.0.0.1:3000/groceries.json")
+response = urlopen("http://127.0.0.1:3000/groceries.json")
 grocery_list = json.loads(response.read())
 # print(grocery_list)
 
