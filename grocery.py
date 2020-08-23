@@ -15,7 +15,7 @@
 
 from __future__ import print_function
 from Adafruit_Thermal import *
-import urllib.request, json
+import urllib, json
 
 # Global
 printer = Adafruit_Thermal("/dev/serial0", 19200, timeout=5)
