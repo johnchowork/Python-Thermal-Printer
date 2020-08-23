@@ -15,7 +15,6 @@
 
 from __future__ import print_function
 from Adafruit_Thermal import *
-import urllib.request 
 from urllib.request import urlopen
 import json
 
